@@ -10,6 +10,11 @@ import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
 
+import JsonExcel from 'vue-json-excel'  // 引用导出excel组件
+
+Vue.component('downloadExcel', JsonExcel)// 引用导出excel组件
+
+
 Vue.config.productionTip = false;
 Vue.use(VueI18n);
 Vue.use(ElementUI, {

@@ -10,7 +10,7 @@
                             <el-form
                                 :model="ruleForm2"
                                 status-icon
-                                :rules="rules2"
+                      
                                 ref="ruleForm2"
                                 label-width="110px"
                             >
@@ -138,7 +138,7 @@
                             <el-form
                                 :model="ruleForm2"
                                 status-icon
-                                :rules="rules2"
+                         
                                 ref="ruleForm2"
                                 label-width="110px"
                             >
@@ -172,7 +172,12 @@
                                         </el-form-item>
                                     </el-col>
                                 </el-row>
-                                <el-row :gutter="10" type="flex" justify="center" style="maigin-bottom:3px">
+                                <el-row
+                                    :gutter="10"
+                                    type="flex"
+                                    justify="center"
+                                    style="maigin-bottom:3px"
+                                >
                                     <el-button type="primary">清除删选条件</el-button>
                                     <el-button type="primary">筛选</el-button>
                                 </el-row>
@@ -181,7 +186,7 @@
                     </el-container>
                 </el-col>
             </el-row>
-            <el-row :gutter="20"  style="margin:auto;margin-top:10px">
+            <el-row :gutter="20" style="margin:auto;margin-top:10px">
                 <el-col :span="18">
                     <el-card shadow="hover">
                         <el-table
@@ -230,7 +235,15 @@
             </el-row>
             <el-row :gutter="20" type="flex" justify="center">
                 <el-button type="primary">确认</el-button>
-                <el-button type="success">导出数据</el-button>
+
+                <download-excel
+                    :data="json_data"
+                    :fields="json_fields"
+                    worksheet="My Worksheet"
+                    name="test111111"
+                >
+                    <el-button type="success">导出数据</el-button>
+                </download-excel>
             </el-row>
         </el-row>
     </div>
@@ -247,6 +260,40 @@ export default {
                 maxLength: '', //最大长度
                 maxWidth: '' //最大跳宽
             },
+            json_fields: {
+                '类型': 'type',
+                '长度': 'long',
+                'mold_thickness': 'mold_thickness',
+                // 'Telephone 2': 'phone.landline'
+                // 'Telephone 2': {
+                //     field: 'phone.landline',
+                //     callback: value => {
+                //         return `Landline Phone - ${value}`;
+                //     }
+                // }
+            },
+            json_data: [
+                // {
+                //     name: 'Tony Peña',
+                //     city: 'New York',
+                //     country: 'United States',
+                //     birthdate: '1978-03-15',
+                //     phone: {
+                //         mobile: '1-541-754-3010',
+                //         landline: '(541) 754-3010'
+                //     }
+                // },
+                // {
+                //     name: 'Thessaloniki',
+                //     city: 'Athens',
+                //     country: 'Greece',
+                //     birthdate: '1987-11-23',
+                //     phone: {
+                //         mobile: '+1 855 275 5071',
+                //         landline: '(2741) 2621-244'
+                //     }
+                // }
+            ],
             tableData3: [
                 {
                     type: '01',
@@ -363,25 +410,26 @@ export default {
             // if(tableData4.type == val.type){
 
             // }
-            this.multipleSelection = [];
+            this.json_data = val;
             // console.log(val);
-            val.forEach(valItem => {
-                this.tableData4.forEach(element => {
-                    if (element.type == valItem.type) {
-                        element.data.forEach(dataItem => {
-                            console.log(dataItem);
-                            console.log('dataItem');
-                            var dataItemTest = {};
-                            dataItemTest.type = element.type;
-                            dataItemTest.code = dataItem.code;
-                            dataItemTest.thickness = dataItem.thickness;
-                            this.multipleSelection.push(dataItemTest);
-                        });
-                    }
-                });
-            });
+            // val.forEach(valItem => {
+            //     this.tableData4.forEach(element => {
+            //         if (element.type == valItem.type) {
+            //             element.data.forEach(dataItem => {
+            //                 console.log(dataItem);
+            //                 console.log('dataItem');
+            //                 var dataItemTest = {};
+            //                 dataItemTest.type = element.type;
+            //                 dataItemTest.code = dataItem.code;
+            //                 dataItemTest.thickness = dataItem.thickness;
+            //                 this.multipleSelection.push(dataItemTest);
+            //             });
+            //         }
+            //     });
+            // });
 
-            console.log(this.multipleSelection);
+
+            console.log(this.json_data);
         }
     }
 };
