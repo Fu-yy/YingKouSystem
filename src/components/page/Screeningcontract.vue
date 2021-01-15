@@ -10,7 +10,6 @@
                             <el-form
                                 :model="ruleForm2"
                                 status-icon
-                      
                                 ref="ruleForm2"
                                 label-width="110px"
                             >
@@ -40,43 +39,27 @@
                                             <el-input v-model.number="ruleForm2.criticalValue"></el-input>
                                         </el-form-item>
                                     </el-col>
+                                    <el-col :span="8">
+                                        <el-form-item label="订单长度范围" prop="criticalValue">
+                                            <el-row :gutter="4" type="flex" justify="space-between">
+                                                <el-col :span="11">
+                                                    <el-input
+                                                        v-model.number="ruleForm2.criticalValue"
+                                                    ></el-input>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                    <el-input
+                                                        v-model.number="ruleForm2.criticalValue"
+                                                    ></el-input>
+                                                </el-col>
+                                            </el-row>
+                                        </el-form-item>
+                                    </el-col>
                                 </el-row>
                                 <el-row :gutter="5">
                                     <el-col :span="8">
-                                        <el-form-item label="交货日期范围" prop="criticalValue">
-                                            <el-row :gutter="6">
-                                                <el-col :span="11">
-                                                    <el-input
-                                                        v-model.number="ruleForm2.criticalValue"
-                                                    ></el-input>
-                                                </el-col>
-                                                <el-col :span="11">
-                                                    <el-input
-                                                        v-model.number="ruleForm2.criticalValue"
-                                                    ></el-input>
-                                                </el-col>
-                                            </el-row>
-                                        </el-form-item>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-form-item label="订单长度范围" prop="criticalValue">
-                                            <el-row :gutter="6">
-                                                <el-col :span="11">
-                                                    <el-input
-                                                        v-model.number="ruleForm2.criticalValue"
-                                                    ></el-input>
-                                                </el-col>
-                                                <el-col :span="11">
-                                                    <el-input
-                                                        v-model.number="ruleForm2.criticalValue"
-                                                    ></el-input>
-                                                </el-col>
-                                            </el-row>
-                                        </el-form-item>
-                                    </el-col>
-                                    <el-col :span="8">
                                         <el-form-item label="订单厚度范围" prop="criticalValue">
-                                            <el-row :gutter="6">
+                                            <el-row :gutter="4" type="flex" justify="space-between">
                                                 <el-col :span="11">
                                                     <el-input
                                                         v-model.number="ruleForm2.criticalValue"
@@ -90,25 +73,10 @@
                                             </el-row>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="8">
-                                        <el-form-item label="合同分配日期" prop="criticalValue">
-                                            <el-row :gutter="6">
-                                                <el-col :span="11">
-                                                    <el-input
-                                                        v-model.number="ruleForm2.criticalValue"
-                                                    ></el-input>
-                                                </el-col>
-                                                <el-col :span="11">
-                                                    <el-input
-                                                        v-model.number="ruleForm2.criticalValue"
-                                                    ></el-input>
-                                                </el-col>
-                                            </el-row>
-                                        </el-form-item>
-                                    </el-col>
+
                                     <el-col :span="8">
                                         <el-form-item label="订单宽度范围" prop="criticalValue">
-                                            <el-row :gutter="6">
+                                            <el-row :gutter="4" type="flex" justify="space-between">
                                                 <el-col :span="11">
                                                     <el-input
                                                         v-model.number="ruleForm2.criticalValue"
@@ -124,6 +92,39 @@
                                     </el-col>
                                 </el-row>
 
+                                <el-row>
+                                    <el-col :span="24">
+                                        <el-form-item label="合同分配日期" prop="criticalValue">
+                                            <el-date-picker
+                                                        v-model="contracDatetimerange"
+                                                        type="datetimerange"
+                                                        align="right"
+                                                        unlink-panels
+                                                        range-separator="至"
+                                                        start-placeholder="开始日期"
+                                                        end-placeholder="结束日期"
+                                                        :picker-options="pickerOptions2"
+                                                    ></el-date-picker>
+                                        </el-form-item>
+                                    </el-col>
+                                </el-row>
+                                <el-row>
+                                    <el-col :span="24">
+                                        <el-form-item label="交货日期范围" prop="criticalValue">
+                                            <el-date-picker
+                                                        v-model="deliveryDatetimerange"
+                                                        type="datetimerange"
+                                                        align="right"
+                                                        unlink-panels
+                                                        range-separator="至"
+                                                        start-placeholder="开始日期"
+                                                        end-placeholder="结束日期"
+                                                        :picker-options="pickerOptions2"
+                                                    ></el-date-picker>
+                                        </el-form-item>
+                                    </el-col>
+                                </el-row>
+
                                 <el-row :gutter="5" type="flex" justify="center">
                                     <el-button type="primary">搜索</el-button>
                                 </el-row>
@@ -134,30 +135,31 @@
                 <el-col :span="9">
                     <el-container>
                         <el-header style="text-align: left;">筛选</el-header>
-                        <el-card shadow="hover" style="height:270px">
+
+                        <el-card shadow="hover">
                             <el-form
                                 :model="ruleForm2"
                                 status-icon
-                         
                                 ref="ruleForm2"
                                 label-width="110px"
                             >
-                                <el-row :gutter="10">
-                                    <el-col :span="12">
+                                <el-row :gutter="5">
+                                    <el-col :span="24">
+                                        <div style="height:40px"></div>
+                                    </el-col>
+                                    <el-col :span="20">
                                         <el-form-item label="是否有欠" prop="criticalValue">
                                             <el-input v-model.number="ruleForm2.criticalValue"></el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="12">
+                                    <el-col :span="20">
                                         <el-form-item label="GK码" prop="criticalValue">
                                             <el-input v-model.number="ruleForm2.criticalValue"></el-input>
                                         </el-form-item>
                                     </el-col>
-                                </el-row>
-                                <el-row :gutter="5">
-                                    <el-col :span="12">
+                                    <el-col :span="20">
                                         <el-form-item label="牌号" prop="criticalValue">
-                                            <el-row :gutter="6">
+                                            <el-row :gutter="4" type="flex" justify="space-between">
                                                 <el-col :span="11">
                                                     <el-input
                                                         v-model.number="ruleForm2.criticalValue"
@@ -171,14 +173,13 @@
                                             </el-row>
                                         </el-form-item>
                                     </el-col>
+                                    <el-col :span="24">
+                                        <div style="height:58px"></div>
+                                    </el-col>
                                 </el-row>
-                                <el-row
-                                    :gutter="10"
-                                    type="flex"
-                                    justify="center"
-                                    style="maigin-bottom:3px"
-                                >
-                                    <el-button type="primary">清除删选条件</el-button>
+
+                                <el-row :gutter="5" type="flex" justify="center">
+                                    <el-button type="primary">清除筛选条件</el-button>
                                     <el-button type="primary">筛选</el-button>
                                 </el-row>
                             </el-form>
@@ -192,7 +193,7 @@
                         <el-table
                             :data="tableData3"
                             ref="multipleTable"
-                            height="250"
+                            height="350"
                             border
                             @selection-change="handleSelectionChange"
                             style="width: 100%"
@@ -213,6 +214,22 @@
                             <el-table-column prop="min_thick" label="最小厚度" sortable></el-table-column>
                             <el-table-column prop="is_normal" label="是否常用" sortable></el-table-column>
                         </el-table>
+
+                        <el-row :gutter="0" type="flex" justify="center" style="margin-top:10px">
+                <el-col :span="6" :offset="6">
+                    <el-button type="primary">确认</el-button>
+                </el-col>
+                <el-col :span="6">
+                    <download-excel
+                        :data="json_data"
+                        :fields="json_fields"
+                        worksheet="My Worksheet"
+                        name="测试表格"
+                    >
+                        <el-button type="success">导出数据</el-button>
+                    </download-excel>
+                </el-col>
+            </el-row>
                     </el-card>
                 </el-col>
                 <el-col :span="6">
@@ -220,7 +237,7 @@
                         <el-table
                             :data="tableData3"
                             ref="multipleTable"
-                            height="250"
+                            height="390"
                             border
                             @selection-change="handleSelectionChange"
                             style="width: 100%"
@@ -233,18 +250,8 @@
                     </el-card>
                 </el-col>
             </el-row>
-            <el-row :gutter="20" type="flex" justify="center">
-                <el-button type="primary">确认</el-button>
 
-                <download-excel
-                    :data="json_data"
-                    :fields="json_fields"
-                    worksheet="My Worksheet"
-                    name="test111111"
-                >
-                    <el-button type="success">导出数据</el-button>
-                </download-excel>
-            </el-row>
+           
         </el-row>
     </div>
 </template>
@@ -254,6 +261,41 @@ export default {
     name: 'screeningcontract',
     data() {
         return {
+            contracDatetimerange: '', //合同分配日期
+            deliveryDatetimerange: '', //交货日期范围
+            pickerOptions2: {
+                //日期选择范围
+                shortcuts: [
+                    {
+                        text: '最近一周',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    },
+                    {
+                        text: '最近一个月',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    },
+                    {
+                        text: '最近三个月',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }
+                ]
+            },
+
             ruleForm2: {
                 criticalValue: '', //临界值
                 threshold: '', //阈值
@@ -261,9 +303,9 @@ export default {
                 maxWidth: '' //最大跳宽
             },
             json_fields: {
-                '类型': 'type',
-                '长度': 'long',
-                'mold_thickness': 'mold_thickness',
+                类型: 'type',
+                长度: 'long',
+                mold_thickness: 'mold_thickness'
                 // 'Telephone 2': 'phone.landline'
                 // 'Telephone 2': {
                 //     field: 'phone.landline',
@@ -296,6 +338,90 @@ export default {
             ],
             tableData3: [
                 {
+                    type: '01',
+                    long: '30',
+                    mold_thickness: '167',
+                    mold_width: '1550',
+                    thickness: '250',
+                    slabwidth: '2000',
+                    min_long: '2400',
+                    max_long: '4730',
+                    max_width: '999999',
+                    min_width: '0',
+                    max_thick: '9999',
+                    min_thick: '0',
+                    is_normal: '0'
+                }, {
+                    type: '01',
+                    long: '30',
+                    mold_thickness: '167',
+                    mold_width: '1550',
+                    thickness: '250',
+                    slabwidth: '2000',
+                    min_long: '2400',
+                    max_long: '4730',
+                    max_width: '999999',
+                    min_width: '0',
+                    max_thick: '9999',
+                    min_thick: '0',
+                    is_normal: '0'
+                }, {
+                    type: '01',
+                    long: '30',
+                    mold_thickness: '167',
+                    mold_width: '1550',
+                    thickness: '250',
+                    slabwidth: '2000',
+                    min_long: '2400',
+                    max_long: '4730',
+                    max_width: '999999',
+                    min_width: '0',
+                    max_thick: '9999',
+                    min_thick: '0',
+                    is_normal: '0'
+                }, {
+                    type: '01',
+                    long: '30',
+                    mold_thickness: '167',
+                    mold_width: '1550',
+                    thickness: '250',
+                    slabwidth: '2000',
+                    min_long: '2400',
+                    max_long: '4730',
+                    max_width: '999999',
+                    min_width: '0',
+                    max_thick: '9999',
+                    min_thick: '0',
+                    is_normal: '0'
+                }, {
+                    type: '01',
+                    long: '30',
+                    mold_thickness: '167',
+                    mold_width: '1550',
+                    thickness: '250',
+                    slabwidth: '2000',
+                    min_long: '2400',
+                    max_long: '4730',
+                    max_width: '999999',
+                    min_width: '0',
+                    max_thick: '9999',
+                    min_thick: '0',
+                    is_normal: '0'
+                }, {
+                    type: '01',
+                    long: '30',
+                    mold_thickness: '167',
+                    mold_width: '1550',
+                    thickness: '250',
+                    slabwidth: '2000',
+                    min_long: '2400',
+                    max_long: '4730',
+                    max_width: '999999',
+                    min_width: '0',
+                    max_thick: '9999',
+                    min_thick: '0',
+                    is_normal: '0'
+                }, {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',
@@ -427,7 +553,6 @@ export default {
             //         }
             //     });
             // });
-
 
             console.log(this.json_data);
         }
