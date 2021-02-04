@@ -96,15 +96,15 @@
                                     <el-col :span="24">
                                         <el-form-item label="合同分配日期" prop="criticalValue">
                                             <el-date-picker
-                                                        v-model="contracDatetimerange"
-                                                        type="datetimerange"
-                                                        align="right"
-                                                        unlink-panels
-                                                        range-separator="至"
-                                                        start-placeholder="开始日期"
-                                                        end-placeholder="结束日期"
-                                                        :picker-options="pickerOptions2"
-                                                    ></el-date-picker>
+                                                v-model="contracDatetimerange"
+                                                type="datetimerange"
+                                                align="right"
+                                                unlink-panels
+                                                range-separator="至"
+                                                start-placeholder="开始日期"
+                                                end-placeholder="结束日期"
+                                                :picker-options="pickerOptions2"
+                                            ></el-date-picker>
                                         </el-form-item>
                                     </el-col>
                                 </el-row>
@@ -112,15 +112,15 @@
                                     <el-col :span="24">
                                         <el-form-item label="交货日期范围" prop="criticalValue">
                                             <el-date-picker
-                                                        v-model="deliveryDatetimerange"
-                                                        type="datetimerange"
-                                                        align="right"
-                                                        unlink-panels
-                                                        range-separator="至"
-                                                        start-placeholder="开始日期"
-                                                        end-placeholder="结束日期"
-                                                        :picker-options="pickerOptions2"
-                                                    ></el-date-picker>
+                                                v-model="deliveryDatetimerange"
+                                                type="datetimerange"
+                                                align="right"
+                                                unlink-panels
+                                                range-separator="至"
+                                                start-placeholder="开始日期"
+                                                end-placeholder="结束日期"
+                                                :picker-options="pickerOptions2"
+                                            ></el-date-picker>
                                         </el-form-item>
                                     </el-col>
                                 </el-row>
@@ -216,20 +216,20 @@
                         </el-table>
 
                         <el-row :gutter="0" type="flex" justify="center" style="margin-top:10px">
-                <el-col :span="6" :offset="6">
-                    <el-button type="primary">确认</el-button>
-                </el-col>
-                <el-col :span="6">
-                    <download-excel
-                        :data="json_data"
-                        :fields="json_fields"
-                        worksheet="My Worksheet"
-                        name="测试表格"
-                    >
-                        <el-button type="success">导出数据</el-button>
-                    </download-excel>
-                </el-col>
-            </el-row>
+                            <el-col :span="6" :offset="6">
+                                <el-button type="primary">确认</el-button>
+                            </el-col>
+                            <el-col :span="6">
+                                <download-excel
+                                    :data="json_data"
+                                    :fields="json_fields"
+                                    worksheet="My Worksheet"
+                                    name="测试表格"
+                                >
+                                    <el-button type="success">导出数据</el-button>
+                                </download-excel>
+                            </el-col>
+                        </el-row>
                     </el-card>
                 </el-col>
                 <el-col :span="6">
@@ -237,7 +237,7 @@
                         <el-table
                             :data="tableData3"
                             ref="multipleTable"
-                            height="390"
+                            height="355"
                             border
                             @selection-change="handleSelectionChange"
                             style="width: 100%"
@@ -247,11 +247,17 @@
                             <el-table-column prop="long" label="GK码-钢牌" sortable></el-table-column>
                             <el-table-column prop="type" label="硬度值" sortable></el-table-column>
                         </el-table>
+                        <el-row :gutter="0" type="flex" justify="center" style="margin-top:10px">
+                            <el-col :span="6" :offset="6">
+                                <el-button type="primary">添加</el-button>
+                            </el-col>
+                            <el-col :span="6" :offset="6">
+                                <el-button type="primary">插入</el-button>
+                            </el-col>
+                        </el-row>
                     </el-card>
                 </el-col>
             </el-row>
-
-           
         </el-row>
     </div>
 </template>
@@ -351,7 +357,8 @@ export default {
                     max_thick: '9999',
                     min_thick: '0',
                     is_normal: '0'
-                }, {
+                },
+                {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',
@@ -365,7 +372,8 @@ export default {
                     max_thick: '9999',
                     min_thick: '0',
                     is_normal: '0'
-                }, {
+                },
+                {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',
@@ -379,7 +387,8 @@ export default {
                     max_thick: '9999',
                     min_thick: '0',
                     is_normal: '0'
-                }, {
+                },
+                {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',
@@ -393,7 +402,8 @@ export default {
                     max_thick: '9999',
                     min_thick: '0',
                     is_normal: '0'
-                }, {
+                },
+                {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',
@@ -407,7 +417,8 @@ export default {
                     max_thick: '9999',
                     min_thick: '0',
                     is_normal: '0'
-                }, {
+                },
+                {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',
@@ -421,7 +432,8 @@ export default {
                     max_thick: '9999',
                     min_thick: '0',
                     is_normal: '0'
-                }, {
+                },
+                {
                     type: '01',
                     long: '30',
                     mold_thickness: '167',

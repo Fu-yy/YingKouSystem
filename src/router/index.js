@@ -27,6 +27,10 @@ export default new Router({
                     path: '/screeningcontract',
                     component: () => import(/* webpackChunkName: "testPage" */ '../components/page/Screeningcontract.vue'),
                     meta: { title: '筛选合同' }
+                },,{
+                    path: '/hadJoin',
+                    component: () => import(/* webpackChunkName: "testPage" */ '../components/page/HadJoin.vue'),
+                    meta: { title: '已排入拼版信息' }
                 },
                 // {
                 //     path: '/dashboard',

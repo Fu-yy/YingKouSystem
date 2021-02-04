@@ -71,6 +71,11 @@ export default {
                     index: 'screeningcontract',
                     title: '筛选合同'
                 },
+                {
+                    icon: 'el-icon-circle-plus',
+                    index: 'hadJoin',
+                    title: '已排入板坯信息'
+                },
                 // {
                 //     icon: 'el-icon-lx-home',
                 //     index: 'dashboard',
